@@ -628,18 +628,19 @@ def main(window):
     global start_time
     start_time = pygame.time.get_ticks()
 
-    background, bg_image = get_background("Brown.png")
 
     block_size = 48
     map_choose=selected_level
 
     global map_end
     if map_choose == "one":
+        background, bg_image = get_background("Yellow.png")
         map = MAP_ONE(block_size, WIDTH, HEIGHT, 16, 32)
         map_end = 3560
     elif map_choose=="two":
+        background, bg_image = get_background("Blue.png")
         map = MAP_TWO(block_size, WIDTH, HEIGHT, 32, 48)
-        map_end = 4070
+        map_end = 4040
     else:
         leaderboard_page()
 
@@ -661,7 +662,7 @@ def main(window):
         objects.append(fruit)
 
     # Add trophy
-    trophy = Trophy(3608, 576, 80, 96)
+    trophy = Trophy(map_end+48, 576, 80, 96)
     objects.append(trophy)
 
     offset_x = 0
